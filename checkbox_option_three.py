@@ -367,7 +367,7 @@ attendance_frame.grid(row=1, column=0)
 
 spell_5_var = IntVar()
 spell_5_on = ttk.Checkbutton(attendance_frame,
-                             text="Spell 5 off/on",
+                             text="Spell 5 on/off",
                              variable=spell_5_var)
 spell_5_on.grid(row=1, column=0)
 

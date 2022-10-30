@@ -225,7 +225,7 @@ top_frame.grid(row=0, column=0, padx=10, pady=10, sticky="NSEW")
 
 # Create and set the text variable
 welcome_text = StringVar()
-welcome_text.set("Welcome!\nClick on a day to display spells.")
+welcome_text.set(Welcome!\nClick on a day to display that days timetable.")
 
 # Create a frame for welcoming
 welcome_label = ttk.Label(top_frame, textvariable=welcome_text, wraplength=200)

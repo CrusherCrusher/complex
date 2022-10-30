@@ -1,12 +1,12 @@
-####################  IMPORTS  #######################
 from tkinter import *
 from tkinter import ttk
 
 
-####################  Class Code  #######################
+# Class Code
 # Create the account class
 class Spell_Info:
-    """The spell info class stores information about each individual day and has methods to determine if spell 5 is on"""
+    # The spell info class stores information about each individual
+    # day and has methods to determine if spell 5 is on
 
     def __init__(self, subject, teacher_name, teacher_code, start_time,
                  end_time):
@@ -42,12 +42,14 @@ class Spell_Info:
         return self._day
 
     def __str__(self):
-        info = self._subject + "\n" + self._teacher_name + "\n" + self._teacher_code + "\n" + self._start_time + "\n" + self._end_time
+        info = self._subject + "\n" + self._teacher_name + "\n" + \
+            self._teacher_code + "\n" + self._start_time + "\n" + \
+            self._end_time
         return info
 
 
-####################  Functions And Setup  #######################
-#define all spell info
+# Functions And Setup  #
+# define all spell info
 monday_spells = [
     Spell_Info("Biology", "Jan Sydlowski", "SJA", "8:45", "9:45"),
     Spell_Info("English", "Grace Howarth", "HGR", "9:45", "10:45"),
@@ -101,7 +103,7 @@ time_table = {
     "Friday": friday_spells
 }
 
-#################### GUI Code  #######################
+# GUI Code  #
 root = Tk()
 root.title("Timetable")
 global spell_one_text
@@ -114,15 +116,15 @@ global spell_five_text
 # Check what day is clicked and display the corresponding spells
 def day_clicked(day):
     spell5_check = spell_5_var.get()
-    #Check if monday is clicked
+    # Check if monday is clicked
     if day == "Monday":
-        #set the attendance options back to their default value
+        # set the attendance options back to their default value
         clicked_one.set("?")
         clicked_two.set("?")
         clicked_three.set("?")
         clicked_four.set("?")
         clicked_five.set("?")
-        #If monday is clicked then display those spells
+        # If monday is clicked then display those spells
         spell_one_text.set("Spell One:\n" + str(time_table["Monday"][0]))
         spell_two_text.set("Spell Two:\n" + str(time_table["Monday"][1]))
         spell_three_text.set("Spell Three:\n" + str(time_table["Monday"][2]))
@@ -133,15 +135,15 @@ def day_clicked(day):
         elif spell5_check == 1:
             spell_five_text.set("Spell Five:\n" + str(time_table["Monday"][5]))
 
-    #Check if tuesday is clicked
+    # Check if tuesday is clicked
     elif day == "Tuesday":
-        #set the attendance options back to their default value
+        # set the attendance options back to their default value
         clicked_one.set("?")
         clicked_two.set("?")
         clicked_three.set("?")
         clicked_four.set("?")
         clicked_five.set("?")
-        #if tuesday is clicked display those spells
+        # if tuesday is clicked display those spells
         spell_one_text.set("Spell One:\n" + str(time_table["Tuesday"][0]))
         spell_two_text.set("Spell Two:\n" + str(time_table["Tuesday"][1]))
         spell_three_text.set("Spell Three:\n" + str(time_table["Tuesday"][2]))
@@ -154,15 +156,15 @@ def day_clicked(day):
             spell_five_text.set("Spell Five:\n" +
                                 str(time_table["Tuesday"][5]))
 
-    #check if wednesday is clicked
+    # check if wednesday is clicked
     elif day == "Wednesday":
-        #set the attendance options back to their default value
+        # set the attendance options back to their default value
         clicked_one.set("?")
         clicked_two.set("?")
         clicked_three.set("?")
         clicked_four.set("?")
         clicked_five.set("?")
-        #If wednesday is clicked then display those spells
+        # If wednesday is clicked then display those spells
         spell_one_text.set("Spell One:\n" + str(time_table["Wednesday"][0]))
         spell_two_text.set("Spell Two:\n" + str(time_table["Wednesday"][1]))
         spell_three_text.set("Spell Three:\n" +
@@ -176,7 +178,7 @@ def day_clicked(day):
             spell_five_text.set("Spell Five:\n" +
                                 str(time_table["Wednesday"][5]))
 
-    #check if thursday is clicked
+    # check if thursday is clicked
     elif day == "Thursday":
         # set the attendance options back to their default value
         clicked_one.set("?")
@@ -184,7 +186,7 @@ def day_clicked(day):
         clicked_three.set("?")
         clicked_four.set("?")
         clicked_five.set("?")
-        #If thursday is clicked then display those spells
+        # If thursday is clicked then display those spells
         spell_one_text.set("Spell One:\n" + str(time_table["Thursday"][0]))
         spell_two_text.set("Spell Two:\n" + str(time_table["Thursday"][1]))
         spell_three_text.set("Spell Three:\n" + str(time_table["Thursday"][2]))
@@ -198,15 +200,15 @@ def day_clicked(day):
             spell_five_text.set("Spell Five:\n" +
                                 str(time_table["Thursday"][5]))
 
-    #Check if friday is clicked
+    # Check if friday is clicked
     elif day == "Friday":
-        #set the attendance options back to their default value
+        # set the attendance options back to their default value
         clicked_one.set("?")
         clicked_two.set("?")
         clicked_three.set("?")
         clicked_four.set("?")
         clicked_five.set("?")
-        #if friday is clicked display those spells
+        # if friday is clicked display those spells
         spell_one_text.set("Spell One:\n" + str(time_table["Friday"][0]))
         spell_two_text.set("Spell Two:\n" + str(time_table["Friday"][1]))
         spell_three_text.set("Spell Three:\n" + str(time_table["Friday"][2]))
@@ -231,14 +233,14 @@ welcome_text.set("Welcome!\nClick on a day to display that days timetable.")
 welcome_label = ttk.Label(top_frame, textvariable=welcome_text, wraplength=200)
 welcome_label.grid(row=10, column=10, columnspan=2, padx=10, pady=10)
 
-#Create a frame for the buttons to go in
+# Create a frame for the buttons to go in
 button_frame = ttk.Frame(root)
 button_frame.grid(row=0, column=10)
-#Create text for monday
+# Create text for monday
 monday_text = StringVar()
 monday_text.set("Monday")
 
-#create a monday button
+# create a monday button
 monday_button = Button(button_frame,
                        textvariable=monday_text,
                        width=8,
@@ -252,7 +254,7 @@ monday_button.grid(row=10, column=30)
 tuesday_text = StringVar()
 tuesday_text.set("Tuesday")
 
-#create a tuesday button
+# create a tuesday button
 tuesday_button = Button(button_frame,
                         textvariable=tuesday_text,
                         width=8,
@@ -266,7 +268,7 @@ tuesday_button.grid(row=10, column=40)
 wednesday_text = StringVar()
 wednesday_text.set("Wednesday")
 
-#Create a wednesday button
+# Create a wednesday button
 wednesday_button = Button(button_frame,
                           textvariable=wednesday_text,
                           width=8,
@@ -280,7 +282,7 @@ wednesday_button.grid(row=10, column=50)
 thursday_text = StringVar()
 thursday_text.set("Thursday")
 
-#Create a thursday button
+# Create a thursday button
 thursday_button = Button(button_frame,
                          textvariable=thursday_text,
                          width=8,
@@ -294,7 +296,7 @@ thursday_button.grid(row=10, column=60)
 friday_text = StringVar()
 friday_text.set("Friday")
 
-#Create a friday button
+# Create a friday button
 friday_button = Button(button_frame,
                        textvariable=friday_text,
                        width=8,
@@ -367,7 +369,7 @@ attendance_frame.grid(row=1, column=0)
 
 spell_5_var = IntVar()
 spell_5_on = ttk.Checkbutton(attendance_frame,
-                             text="Spell 5 off?",
+                             text="Spell 5 on/off",
                              variable=spell_5_var)
 spell_5_on.grid(row=1, column=0)
 
@@ -401,6 +403,7 @@ clicked_five.set("?")
 
 # Create Dropdown menu
 drop = OptionMenu(one_attendance, clicked_one, *options)
+drop.config(bg="orange")
 drop.grid(row=1, column=1)
 
 two_attendance = ttk.Frame(attendance_frame)
@@ -412,6 +415,7 @@ two_attendance_label.grid(row=1, column=0)
 
 # Create Dropdown menu
 drop_two = OptionMenu(two_attendance, clicked_two, *options)
+drop_two.config(bg="orange")
 drop_two.grid(row=1, column=1)
 
 three_attendance = ttk.Frame(attendance_frame)
@@ -424,6 +428,7 @@ three_attendance_label.grid(row=1, column=0)
 
 # Create Dropdown menu
 drop_three = OptionMenu(three_attendance, clicked_three, *options)
+drop_three.config(bg="orange")
 drop_three.grid(row=1, column=1)
 
 four_attendance = ttk.Frame(attendance_frame)
@@ -436,6 +441,7 @@ four_attendance_label.grid(row=1, column=0)
 
 # Create Dropdown menu
 drop_four = OptionMenu(four_attendance, clicked_four, *options)
+drop_four.config(bg="orange")
 drop_four.grid(row=1, column=1)
 
 five_attendance = ttk.Frame(attendance_frame)
@@ -448,6 +454,7 @@ five_attendance_label.grid(row=1, column=0)
 
 # Create Dropdown menu
 drop_five = OptionMenu(five_attendance, clicked_five, *options)
+drop_five.config(bg="orange")
 drop_five.grid(row=1, column=1)
 
 # Run the mainloop
